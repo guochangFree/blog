@@ -20,5 +20,12 @@ module.exports = {
         sidebar: 'auto',
 
         sidebarDepth: 2
+    },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '@dbp': './../..'
+            }
+        }
     }
 }

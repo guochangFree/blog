@@ -49,7 +49,7 @@ Spring基础知识。
 所以 BeanDefinition 这可以说是抽象了Spring Bean的数据结构。我们注册的bean都将经历从 spring 创建相应
 的 BeanDefinition 到创建具体的实例。下图描述BeanDefinition的部分继承。
 
-![An image](./../img/BeanDefinition.png)
+![An image](./../../img/BeanDefinition.png)
 
 * Spring经典的startup method -- AbstractApplicationContext#refresh
 
@@ -126,21 +126,21 @@ EventListenerMethodProcessor等。这些Processor会处理各自的场景。
 读者现在可以不用了解这些processor的用途，下图中，在调用`register(annotatedClasses)`和`refresh()`方法之前，
 已经载入了多个BeanPostProcessor。下面我将向大家描述spring容器启动时候，如何载入某些内置的processor。
 
-![An image](./../img/internalBeanPostProcessor.png)
+![An image](./../../img/internalBeanPostProcessor.png)
 
 > 【注意】不同的`ApplicationContext`内置的`BeanPostProcessor`不同。
 
 针对本章节内容我们主要讲解图片中的`org.springframework.context.annotation.internalConfigurationAnnotationProcessor`
 对应的class为`ConfigurationClassPostProcessor`,下面`ConfigurationClassPostProcessor`的部分继承关系。
 <div align=center>
-<img src="./../img/configurationClassPostProcessor.png" width="350px" />
+<img src="./../../img/configurationClassPostProcessor.png" width="350px" />
 </div>
 
 `AnnotationConfigApplicationContext`的构造方法调用链如下,执行结束时候已经向容器中载入`ConfigurationClassPostProcessor`
 的`BeanDefinition`,具体代码在`AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);`即下图的最后
 一个步骤。
 <div align=center>
-<img src="./../img/registInternalConfiguraionBeanPostProcessor.png" width="400px" />
+<img src="./../../img/registInternalConfiguraionBeanPostProcessor.png" width="400px" />
 </div>
 
 ```java
